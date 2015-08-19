@@ -5,24 +5,35 @@ public class User implements Serializable{
 	
 	
 	private String name;
-	private String email;
+	private float weight;
+	private int age;
+	
+	public User(String name, float weight, int age) {
+		this.name = name;
+		this.weight = weight;
+		this.age = age;
+	}
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEmail() {
-		return email;
+	public float getWeight() {
+		return weight;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setWeight(float weight) {
+		this.weight = weight;
 	}
-	public User(String name, String email) {
-		super();
-		this.name = name;
-		this.email = email;
+	public int getAge() {
+		return age;
 	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	
 	
 	
 

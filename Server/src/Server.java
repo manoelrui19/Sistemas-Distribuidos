@@ -11,6 +11,7 @@ public class Server extends Thread{
 	        try {  
 	            ServerSocket serverSocket = new ServerSocket(PORT);  
 	            System.out.println("Connecting...Server Ok!");
+	            
 	            while (true) {  
 	                Socket s = serverSocket.accept();          
 	                ProcessCall process = new ProcessCall(s);
