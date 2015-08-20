@@ -1,3 +1,4 @@
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -10,6 +11,7 @@ public class Client {
 	
 	public static void main(String[] args) {
 		Socket socket;
+		byte[] tempBytes;
 		
 		try {
 			// Object to be send
@@ -25,6 +27,9 @@ public class Client {
             System.out.println("User.name: " + user.getName());
             System.out.println("User.weight: " + user.getWeight());
             System.out.println("User.age: " + user.getAge());
+            tempBytes = Utils.serializeObjToByteArray(user);
+            System.out.println("Object size: " + tempBytes.length);
+            System.out.println("Bytes: " + Utils.bytesToHex(tempBytes));
             oos.writeObject(user);         
                         
             // Receiving a new serialized User object     
@@ -33,7 +38,10 @@ public class Client {
             System.out.println("User.name: " + returnedUser.getName());
             System.out.println("User.weight: " + returnedUser.getWeight());
             System.out.println("User.age: " + returnedUser.getAge());
- 
+            tempBytes = Utils.serializeObjToByteArray(returnedUser);
+            System.out.println("Object size: " + tempBytes.length);
+            System.out.println("Bytes: " + Utils.bytesToHex(tempBytes));
+            
             oos.close();  
             ois.close(); 
             socket.close();
